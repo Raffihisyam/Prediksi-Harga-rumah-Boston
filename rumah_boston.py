@@ -85,7 +85,7 @@ df = df.drop(columns=Features_NonUsed)
 
 
 # Choose whether you will perform logarithmic transformation
-left_column, right_column = st.columns([2])
+left_column, right_column = st.beta_columns(2)
 bool_log = left_column.radio(
       'Ingin menggunakan tranformasi algoritma?', 
       ('No','Yes')
@@ -102,7 +102,7 @@ if bool_log == 'Yes':
 
 
 # Choose whether you will perform standardization
-left_column, right_column = st.columns(2)
+left_column, right_column = st.beta_columns(2)
 bool_std = left_column.radio(
       'Ingin menampilkan standarisasi?',
       ('No','Yes')
@@ -132,7 +132,7 @@ if bool_std == 'Yes':
 """
 ### Split the dataset into training and validation datasets
 """
-left_column, right_column = st.columns(2)
+left_column, right_column = st.beta_columns(2)
 test_size = left_column.number_input(
         'validasi besar data (rate: 0.0-1.0):',
         min_value=0.0,
@@ -184,7 +184,7 @@ st.write(f'R2 value: {R2:.2f}')
 """
 ### Plot the results
 """
-left_column, right_column = st.columns(2)
+left_column, right_column = st.beta_columns(2)
 show_train = left_column.radio(
         'Plot the result of the training dataset:', 
         ('Yes','No')
@@ -203,10 +203,10 @@ y_max = int(max([y_max_train, y_max_val]))
 
 
 # Allows the axis range to be changed dynamically
-left_column, right_column = st.columns(2)
+left_column, right_column = st.beta_columns(2)
 x_min = left_column.number_input('x_min:',value=0,step=1)
 x_max = right_column.number_input('x_max:',value=y_max,step=1)
-left_column, right_column = st.columns(2)
+left_column, right_column = st.beta_columns(2)
 y_min = left_column.number_input('y_min:',value=0,step=1)
 y_max = right_column.number_input('y_max:',value=y_max,step=1)
 
@@ -226,5 +226,7 @@ plt.tick_params(labelsize=6)
 
 # Display by Streamlit
 st.pyplot(fig)
+
+
 
 
